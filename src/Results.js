@@ -2,7 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import Movie from "./Movie";
 
-const Results = ({ title, movieData, nominatedMovies, setNominatedMovies }) => {
+const Results = ({
+  title,
+  movieData,
+  nominatedMovies,
+  setNominatedMovies,
+  isNominated,
+  setIsNominated,
+}) => {
   return (
     <Wrapper>
       <Header>Results for "{title}"</Header>
@@ -12,10 +19,13 @@ const Results = ({ title, movieData, nominatedMovies, setNominatedMovies }) => {
             return (
               <Movie
                 key={index}
+                id={index + 1}
                 title={movie.Title}
                 year={movie.Year}
                 nominatedMovies={nominatedMovies}
                 setNominatedMovies={setNominatedMovies}
+                isNominated={isNominated}
+                setIsNominated={setIsNominated}
               />
             );
           })}

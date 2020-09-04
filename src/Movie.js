@@ -1,11 +1,19 @@
 import React from "react";
 import styled from "styled-components";
 
-const Movie = ({ title, year, nominatedMovies, setNominatedMovies }) => {
+const Movie = ({
+  id,
+  title,
+  year,
+  nominatedMovies,
+  setNominatedMovies,
+  isNominated,
+  setIsNominated,
+}) => {
   const handleNomination = (ev) => {
     ev.preventDefault();
     setNominatedMovies((nominatedMovies) =>
-      nominatedMovies.concat({ title, year })
+      nominatedMovies.concat({ id, title, year })
     );
   };
   return (

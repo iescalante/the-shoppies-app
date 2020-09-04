@@ -1,10 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const Nominations = ({ nominatedMovies, setNominatedMovies }) => {
-  const handleRemove = (ev) => {
-    ev.preventDefault();
-  };
+const Nominations = ({ nominatedMovies, setNominatedMovies, handleRemove }) => {
   return (
     <Wrapper>
       <Header>Nominations</Header>
@@ -15,7 +12,9 @@ const Nominations = ({ nominatedMovies, setNominatedMovies }) => {
               <MovieInfo>
                 {movie.title} ({movie.year})
               </MovieInfo>
-              <RemoveBtn onClick={handleRemove}>Remove</RemoveBtn>
+              <RemoveBtn type="button" onClick={() => handleRemove(movie.id)}>
+                Remove
+              </RemoveBtn>
             </ListItem>
           );
         })}

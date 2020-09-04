@@ -11,8 +11,14 @@ function App() {
   const [title, setTitle] = React.useState("");
   const [movieData, setMovieData] = React.useState();
   const [nominatedMovies, setNominatedMovies] = React.useState([]);
+  const [isNominated, setIsNominated] = React.useState(false);
   const [error, setError] = React.useState(null);
   console.log(nominatedMovies);
+  const handleRemove = (id) => {
+    console.log(id);
+    const newList = nominatedMovies.filter((item) => item.id !== id);
+    setNominatedMovies(newList);
+  };
 
   if (error) {
     return <Error />;
@@ -35,10 +41,13 @@ function App() {
             movieData={movieData}
             nominatedMovies={nominatedMovies}
             setNominatedMovies={setNominatedMovies}
+            isNominated={isNominated}
+            setIsNominated={setIsNominated}
           />
           <Nominations
             nominatedMovies={nominatedMovies}
             setNominateMovies={setNominatedMovies}
+            handleRemove={handleRemove}
           />
         </Bottom>
       </Wrapper>
