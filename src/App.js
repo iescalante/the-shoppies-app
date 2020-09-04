@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import styled from "styled-components";
+import GlobalStyles from "./GlobalStyles";
+import Header from "./Header";
+import MovieSearch from "./MovieSearch";
+import Results from "./Results";
+import Nominations from "./Nominations";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalStyles />
+      <Wrapper>
+        <Header />
+        <MovieSearch />
+        <Bottom>
+          <Results />
+          <Nominations />
+        </Bottom>
+      </Wrapper>
+    </>
   );
 }
+const Wrapper = styled.div`
+  margin: 20px 50px;
+  margin-right: 25%;
+`;
+const Bottom = styled.div`
+  display: flex;
+`;
 
 export default App;
