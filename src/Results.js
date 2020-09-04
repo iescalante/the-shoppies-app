@@ -1,23 +1,16 @@
 import React from "react";
 import styled from "styled-components";
+import Movie from "./Movie";
 
-const Results = () => {
+const Results = ({ title, movieData }) => {
   return (
     <Wrapper>
-      <Header>Results for "INPUT"</Header>
+      <Header>Results for "{title}"</Header>
       <List>
-        <ListItem>
-          <MovieInfo>Rambo (1999)</MovieInfo>
-          <NominateBtn>Nominate</NominateBtn>
-        </ListItem>
-        <ListItem>
-          <MovieInfo>Hey Ram (2000)</MovieInfo>
-          <NominateBtn>Nominate</NominateBtn>
-        </ListItem>
-        <ListItem>
-          <MovieInfo>Ram Dass, Going Home (2007)</MovieInfo>
-          <NominateBtn>Nominate</NominateBtn>
-        </ListItem>
+        {movieData &&
+          movieData.Search.slice(0, 5).map((movie, index) => {
+            return <Movie key={index} title={movie.Title} year={movie.Year} />;
+          })}
       </List>
     </Wrapper>
   );
@@ -33,16 +26,5 @@ const Header = styled.h2`
 `;
 const List = styled.ul`
   padding: 10px 40px;
-`;
-const ListItem = styled.li`
-  margin: 5px 0;
-`;
-const MovieInfo = styled.p`
-  display: inline-block;
-  margin-right: 15px;
-`;
-const NominateBtn = styled.button`
-  font-size: 1rem;
-  padding: 4px;
 `;
 export default Results;

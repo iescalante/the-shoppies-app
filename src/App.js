@@ -5,16 +5,31 @@ import Header from "./Header";
 import MovieSearch from "./MovieSearch";
 import Results from "./Results";
 import Nominations from "./Nominations";
+import Error from "./Error";
 
 function App() {
+  const [title, setTitle] = React.useState("");
+  const [movieData, setMovieData] = React.useState();
+  const [nominatedMovies, setNominatedMovies] = React.useState([]);
+  const [error, setError] = React.useState(null);
+
+  if (error) {
+    return <Error />;
+  }
+
   return (
     <>
       <GlobalStyles />
       <Wrapper>
         <Header />
-        <MovieSearch />
+        <MovieSearch
+          title={title}
+          setTitle={setTitle}
+          setMovieData={setMovieData}
+          setError={setError}
+        />
         <Bottom>
-          <Results />
+          <Results title={title} movieData={movieData} />
           <Nominations />
         </Bottom>
       </Wrapper>
