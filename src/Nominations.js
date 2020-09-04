@@ -1,31 +1,24 @@
 import React from "react";
 import styled from "styled-components";
 
-const Nominations = () => {
+const Nominations = ({ nominatedMovies, setNominatedMovies }) => {
+  const handleRemove = (ev) => {
+    ev.preventDefault();
+  };
   return (
     <Wrapper>
       <Header>Nominations</Header>
       <List>
-        <ListItem>
-          <MovieInfo>Rambo (1999)</MovieInfo>
-          <RemoveBtn>Remove</RemoveBtn>
-        </ListItem>
-        <ListItem>
-          <MovieInfo>Rambo (1999)</MovieInfo>
-          <RemoveBtn>Remove</RemoveBtn>
-        </ListItem>
-        <ListItem>
-          <MovieInfo>Rambo (1999)</MovieInfo>
-          <RemoveBtn>Remove</RemoveBtn>
-        </ListItem>
-        <ListItem>
-          <MovieInfo>Rambo (1999)</MovieInfo>
-          <RemoveBtn>Remove</RemoveBtn>
-        </ListItem>
-        <ListItem>
-          <MovieInfo>Rambo (1999)</MovieInfo>
-          <RemoveBtn>Remove</RemoveBtn>
-        </ListItem>
+        {nominatedMovies.map((movie, index) => {
+          return (
+            <ListItem key={index}>
+              <MovieInfo>
+                {movie.title} ({movie.year})
+              </MovieInfo>
+              <RemoveBtn onClick={handleRemove}>Remove</RemoveBtn>
+            </ListItem>
+          );
+        })}
       </List>
     </Wrapper>
   );
@@ -49,5 +42,6 @@ const MovieInfo = styled.p`
 const RemoveBtn = styled.button`
   font-size: 1rem;
   padding: 4px;
+  cursor: pointer;
 `;
 export default Nominations;

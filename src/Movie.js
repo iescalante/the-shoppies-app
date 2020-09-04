@@ -1,9 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-const Movie = ({ title, year }) => {
+const Movie = ({ title, year, nominatedMovies, setNominatedMovies }) => {
   const handleNomination = (ev) => {
-    console.log("hello");
+    ev.preventDefault();
+    setNominatedMovies((nominatedMovies) =>
+      nominatedMovies.concat({ title, year })
+    );
   };
   return (
     <>
@@ -26,5 +29,6 @@ const MovieInfo = styled.p`
 const NominateBtn = styled.button`
   font-size: 1rem;
   padding: 4px;
+  cursor: pointer;
 `;
 export default Movie;

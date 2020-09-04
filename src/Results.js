@@ -2,14 +2,22 @@ import React from "react";
 import styled from "styled-components";
 import Movie from "./Movie";
 
-const Results = ({ title, movieData }) => {
+const Results = ({ title, movieData, nominatedMovies, setNominatedMovies }) => {
   return (
     <Wrapper>
       <Header>Results for "{title}"</Header>
       <List>
         {movieData &&
           movieData.Search.slice(0, 5).map((movie, index) => {
-            return <Movie key={index} title={movie.Title} year={movie.Year} />;
+            return (
+              <Movie
+                key={index}
+                title={movie.Title}
+                year={movie.Year}
+                nominatedMovies={nominatedMovies}
+                setNominatedMovies={setNominatedMovies}
+              />
+            );
           })}
       </List>
     </Wrapper>

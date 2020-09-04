@@ -12,6 +12,7 @@ function App() {
   const [movieData, setMovieData] = React.useState();
   const [nominatedMovies, setNominatedMovies] = React.useState([]);
   const [error, setError] = React.useState(null);
+  console.log(nominatedMovies);
 
   if (error) {
     return <Error />;
@@ -29,8 +30,16 @@ function App() {
           setError={setError}
         />
         <Bottom>
-          <Results title={title} movieData={movieData} />
-          <Nominations />
+          <Results
+            title={title}
+            movieData={movieData}
+            nominatedMovies={nominatedMovies}
+            setNominatedMovies={setNominatedMovies}
+          />
+          <Nominations
+            nominatedMovies={nominatedMovies}
+            setNominateMovies={setNominatedMovies}
+          />
         </Bottom>
       </Wrapper>
     </>
