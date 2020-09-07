@@ -1,10 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 import { FiSearch } from "react-icons/fi";
+import { AppContext } from "./AppContext";
 
 const apiKey = process.env.REACT_APP_OMDB_API_KEY;
 
-const MovieSearch = ({ title, setTitle, setMovieData, setError }) => {
+const MovieSearch = () => {
+  const { title, setTitle, setMovieData, setError } = React.useContext(
+    AppContext
+  );
+
   const handleTitle = (ev) => {
     setTitle(ev.target.value);
   };

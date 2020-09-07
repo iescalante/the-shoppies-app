@@ -1,7 +1,14 @@
 import React from "react";
 import styled from "styled-components";
+import { AppContext } from "./AppContext";
 
-const Nominations = ({ nominatedMovies, setNominatedMovies, handleRemove }) => {
+const Nominations = () => {
+  const { nominatedMovies, setNominatedMovies } = React.useContext(AppContext);
+  const handleRemove = (id) => {
+    console.log(id);
+    const newList = nominatedMovies.filter((item) => item.id !== id);
+    setNominatedMovies(newList);
+  };
   return (
     <Wrapper>
       <Header>Nominations</Header>
@@ -24,6 +31,7 @@ const Nominations = ({ nominatedMovies, setNominatedMovies, handleRemove }) => {
 };
 const Wrapper = styled.div`
   border: 1px solid rgb(10, 10, 10);
+  flex: 1;
 `;
 const Header = styled.h2`
   margin: 10px 20px;

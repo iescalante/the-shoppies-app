@@ -1,15 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 import Movie from "./Movie";
+import { AppContext } from "./AppContext";
 
-const Results = ({
-  title,
-  movieData,
-  nominatedMovies,
-  setNominatedMovies,
-  isNominated,
-  setIsNominated,
-}) => {
+const Results = () => {
+  const {
+    title,
+    movieData,
+    nominatedMovies,
+    setNominatedMovies,
+    isNominated,
+    setIsNominated,
+  } = React.useContext(AppContext);
   return (
     <Wrapper>
       <Header>Results for "{title}"</Header>
