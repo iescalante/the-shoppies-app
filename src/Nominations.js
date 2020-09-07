@@ -13,9 +13,10 @@ const Nominations = () => {
     <Wrapper>
       <Header>Nominations</Header>
       <List>
-        {nominatedMovies.map((movie, index) => {
+        {nominatedMovies.map((movie) => {
+          console.log(movie);
           return (
-            <ListItem key={index}>
+            <ListItem key={Math.random() * 1000000}>
               <MovieInfo>
                 {movie.title} ({movie.year})
               </MovieInfo>

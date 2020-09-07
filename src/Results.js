@@ -16,18 +16,15 @@ const Results = () => {
     <Wrapper>
       <Header>Results for "{title}"</Header>
       <List>
-        {movieData &&
-          movieData.Search.slice(0, 5).map((movie, index) => {
+        {movieData && //if portion only, use .slice(0, x) after Search
+          movieData.Search.map((movie) => {
+            console.log(movie);
             return (
               <Movie
-                key={index}
-                id={index + 1}
+                key={Math.random() * 1000000}
+                id={movie.imdbID}
                 title={movie.Title}
                 year={movie.Year}
-                nominatedMovies={nominatedMovies}
-                setNominatedMovies={setNominatedMovies}
-                isNominated={isNominated}
-                setIsNominated={setIsNominated}
               />
             );
           })}

@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { FiSearch } from "react-icons/fi";
 import { AppContext } from "./AppContext";
+import Error from "./Error";
 
 const apiKey = process.env.REACT_APP_OMDB_API_KEY;
 
@@ -10,18 +11,22 @@ const MovieSearch = () => {
     AppContext
   );
 
-  const handleTitle = (ev) => {
-    setTitle(ev.target.value);
-  };
   const handleSearch = (ev) => {
     ev.preventDefault();
-    fetch(`http://www.omdbapi.com/?apikey=${apiKey}&s=${title}&type=movie`)
-      .then((res) => res.json())
-      .then((data) => {
-        setMovieData(data);
-        console.log(data);
-      })
-      .catch((err) => setError(err));
+    if (title.length > 2) {
+      fetch(`http://www.omdbapi.com/?apikey=${apiKey}&s=${title}&type=movie`)
+        .then((res) => res.json())
+        .then((data) => {
+          setMovieData(data);
+          console.log(data);
+        })
+        .catch((err) => setError(err));
+    }
+    return;
+  };
+
+  const handleTitle = (ev) => {
+    setTitle(ev.target.value);
   };
 
   return (
@@ -32,7 +37,11 @@ const MovieSearch = () => {
           <SearchButton onClick={handleSearch}>
             <FiSearch style={{ width: "80%", height: "80%" }} />
           </SearchButton>
-          <SearchInput value={title} onChange={handleTitle} />
+          <SearchInput
+            value={title}
+            placeholder="Enter 3 letter words + and press 'Enter'"
+            onChange={handleTitle}
+          />
         </Form>
       </Wrapper>
     </>

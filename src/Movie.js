@@ -18,11 +18,18 @@ const Movie = ({ id, title, year }) => {
   };
   return (
     <>
-      <ListItem>
+      <ListItem id={id}>
         <MovieInfo>
           {title} ({year})
         </MovieInfo>
-        <NominateBtn onClick={handleNomination}>Nominate</NominateBtn>
+        <NominateBtn
+          disabled={
+            nominatedMovies.find((movie) => movie.id === id) ? true : false
+          }
+          onClick={handleNomination}
+        >
+          Nominate
+        </NominateBtn>
       </ListItem>
     </>
   );
