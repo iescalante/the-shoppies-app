@@ -3,12 +3,7 @@ import styled from "styled-components";
 import { AppContext } from "./AppContext";
 
 const Movie = ({ id, title, year }) => {
-  const {
-    nominatedMovies,
-    setNominatedMovies,
-    isNominated,
-    setIsNominated,
-  } = React.useContext(AppContext);
+  const { nominatedMovies, setNominatedMovies } = React.useContext(AppContext);
 
   const handleNomination = (ev) => {
     ev.preventDefault();

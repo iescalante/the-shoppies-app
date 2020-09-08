@@ -4,14 +4,8 @@ import Movie from "./Movie";
 import { AppContext } from "./AppContext";
 
 const Results = () => {
-  const {
-    title,
-    movieData,
-    nominatedMovies,
-    setNominatedMovies,
-    isNominated,
-    setIsNominated,
-  } = React.useContext(AppContext);
+  const { title, movieData } = React.useContext(AppContext);
+
   return (
     <Wrapper>
       <Header>Results for "{title}"</Header>
@@ -35,6 +29,7 @@ const Results = () => {
 
 const Wrapper = styled.div`
   border: 1px solid rgb(10, 10, 10);
+  border-radius: 10px;
   flex: 1;
   margin-right: 150px;
 `;

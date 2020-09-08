@@ -33,6 +33,7 @@ const Nominations = () => {
 const Wrapper = styled.div`
   border: 1px solid rgb(10, 10, 10);
   flex: 1;
+  border-radius: 10px;
 `;
 const Header = styled.h2`
   margin: 10px 20px;

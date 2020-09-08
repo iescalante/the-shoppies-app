@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { FiSearch } from "react-icons/fi";
 import { AppContext } from "./AppContext";
-import Error from "./Error";
 
 const apiKey = process.env.REACT_APP_OMDB_API_KEY;
 
@@ -53,6 +52,7 @@ const Wrapper = styled.div`
   background: #999;
   margin: 20px 0;
   padding: 10px;
+  border-radius: 10px;
 `;
 const Header = styled.h2`
   font-size: 1.2rem;
