@@ -11,6 +11,7 @@ const Movie = ({ id, title, year }) => {
       nominatedMovies.concat({ id, title, year })
     );
   };
+
   return (
     <>
       <ListItem id={id}>

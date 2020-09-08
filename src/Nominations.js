@@ -5,7 +5,6 @@ import { AppContext } from "./AppContext";
 const Nominations = () => {
   const { nominatedMovies, setNominatedMovies } = React.useContext(AppContext);
   const handleRemove = (id) => {
-    console.log(id);
     const newList = nominatedMovies.filter((item) => item.id !== id);
     setNominatedMovies(newList);
   };
@@ -14,7 +13,6 @@ const Nominations = () => {
       <Header>Nominations</Header>
       <List>
         {nominatedMovies.map((movie) => {
-          console.log(movie);
           return (
             <ListItem key={Math.random() * 1000000}>
               <MovieInfo>

@@ -16,9 +16,9 @@ const App = () => {
       <GlobalStyles />
       {nominatedMovies.length === 5 && (
         <Banner
-          title="Thank you for your 5 nominations! They will be considered for our movies awards!"
+          title="Thank you for your 5 nominations! They will be considered for our movies awards! This finishes your nominations."
           css={{ color: "white", backgroundColor: "green" }}
-          visibleTime={5000}
+          visibleTime={3000}
         />
       )}
       <Wrapper>

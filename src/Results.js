@@ -12,7 +12,6 @@ const Results = () => {
       <List>
         {movieData && //if portion only, use .slice(0, x) after Search
           movieData.Search.map((movie) => {
-            console.log(movie);
             return (
               <Movie
                 key={Math.random() * 1000000}

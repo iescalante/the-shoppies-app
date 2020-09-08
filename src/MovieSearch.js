@@ -17,7 +17,6 @@ const MovieSearch = () => {
         .then((res) => res.json())
         .then((data) => {
           setMovieData(data);
-          console.log(data);
         })
         .catch((err) => setError(err));
     }
